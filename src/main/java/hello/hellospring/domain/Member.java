@@ -1,6 +1,7 @@
 package hello.hellospring.domain;
 
 public class Member {
+
     private Long id;
     private String name;
 
@@ -19,4 +20,5 @@ public class Member {
     public void setName(String name) {
         this.name = name;
     }
+
 }

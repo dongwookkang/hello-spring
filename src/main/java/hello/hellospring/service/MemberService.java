@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -19,10 +21,11 @@ public class MemberService {
 
     /**
      * 회원가입
+     *
      * @param member
      * @return
      */
-    public Long Join(Member member){
+    public Long Join(Member member) {
 
         validateMember(member);
 
@@ -34,31 +37,31 @@ public class MemberService {
 
     /**
      * 전체 회원 조회
+     *
      * @return
      */
-    public List<Member> findMembers(){
+    public List<Member> findMembers() {
 
-       return memberRepository.findAll();
+        return memberRepository.findAll();
 
     }
 
     /**
      * 회원 아이디 찾기
+     *
      * @param memberId
      * @return
      */
-    public Optional<Member> findOne(Long memberId){
+    public Optional<Member> findOne(Long memberId) {
 
         return memberRepository.findById(memberId);
 
     }
 
-
-
     private void validateMember(Member member) {
         memberRepository.findByName(member.getName())
-              .ifPresent(m -> {
-           throw new IllegalStateException("이미 존재하는 회원입니다");
-              });
+                .ifPresent(m -> {
+                    throw new IllegalStateException("이미 존재하는 회원입니다");
+                });
     }
 }

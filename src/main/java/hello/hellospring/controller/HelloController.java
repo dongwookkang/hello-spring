@@ -19,12 +19,11 @@ public class HelloController {
         return "hello";
     }
 
-            @GetMapping("hello-mvc")
-            public  String helloMvc(@RequestParam(name = "name", required = false) String name,Model model){
-            model.addAttribute("name",name);
-                                       return "hello-template";
-                                       }
-
+    @GetMapping("hello-mvc")
+    public  String helloMvc(@RequestParam(name = "name", required = false) String name,Model model){
+        model.addAttribute("name",name);
+        return "hello-template";
+    }
                                        @GetMapping("hello-string")
     @ResponseBody
     public  String helloString(@RequestParam(name = "name", required = false) String name){
