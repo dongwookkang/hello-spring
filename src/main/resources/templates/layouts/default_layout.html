@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="UTF-8" />
+    <title>Bamdule</title>
 
-
-    <title>210's blog</title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/blog-post.css" rel="stylesheet">
-
-    <!--  <link href="css/styles.css" rel="stylesheet" />-->
-
+    <!-- config fragment 사용 -->
+    <th:block th:replace="fragment/config :: configFragment" ></th:block>
 </head>
-<!--  header fragement 사용  -->
+
 <body>
-<th:block th:replace="fragment/header" :: topbarFragment></th:block>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
-            <th:block layout:fragment="content"></th:block>
-        </div>
-        <!-- 여기는 content가 올 자리 -->
-        <div class="col-md-4">
-            <th:block th:replace="fragment/sidebar" :: sidebarFragment></th:block>
-        </div>
-    </div>
-</div>
-<div class="py-5 bg-dark">
-    <th:block th:replace="fragment/footer" :: footerFragment></th:block>
-</div>
+<!-- header fragment 사용 -->
+<th:block th:replace="fragment/header :: headerFragment"></th:block>
+
+<!--
+    content fragment 사용
+    현재 layout을 사용하는 content fragment의 내용을 삽입한다.
+-->
+<th:block layout:fragment="content"></th:block>
+
+<!-- footer fragment 사용 -->
+<th:block th:replace="fragment/footer :: footerFragment"> </th:block>
 </body>
+
 </html>

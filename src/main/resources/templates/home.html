@@ -1,17 +1,20 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-<div class="container">
-    <div>
-        <h1>Hello spring</h1>
-        <p>회원가입</p>
-        <p>
-            <a href="/members/new">회원가입</a>
-            <a href="/members">회원목록</a>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default_layout">
 
-        </p>
-    </div>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+<!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
+</th:block>
 
+<!-- index.html 고유 스크립트 추가 -->
+<!--<th:block layout:fragment="script">-->
+<!--    &lt;!&ndash;    <script th:src="@{/js/page/home.js}"></script>&ndash;&gt;-->
+<!--</th:block>-->
+
+<div layout:fragment="content">
+    <h1>content</h1>
 </div>
-</body>
 </html>
